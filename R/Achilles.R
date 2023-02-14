@@ -323,7 +323,9 @@ achilles <- function(connectionDetails,
         errorReportFile = file.path(getwd(),"achillesErrorCreateAchillesAnalysis.txt"))
 		
 	  # Populate achilles_analysis with data from achilles_analysis_details.csv from above 
-	  DatabaseConnector::insertTable(
+    ParallelLogger::logInfo("resultsDatabaseSchema")
+    ParallelLogger::logInfo(resultsDatabaseSchema)
+    DatabaseConnector::insertTable(
 		connection        = connection,
         databaseSchema    = resultsDatabaseSchema,
         tableName         = "ACHILLES_ANALYSIS",
