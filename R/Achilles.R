@@ -250,6 +250,8 @@ achilles <- function(connectionDetails,
 		}
 
 		ParallelLogger::logInfo("Beginning single-threaded execution")
+    ParallelLogger::logInfo("right after single-threaded before createTable resultsDatabaseSchema")
+    ParallelLogger::logInfo(resultsDatabaseSchema)
 
 		# first invocation of the connection, to persist throughout to maintain temp tables
 		connection <- DatabaseConnector::connect(connectionDetails = connectionDetails)
@@ -296,7 +298,8 @@ achilles <- function(connectionDetails,
   }
   
   ###### Create and populate the achilles_analysis table (assumes inst/csv/achilles_analysis_details.csv exists) 
-
+ParallelLogger::logInfo("before createTable resultsDatabaseSchema")
+ParallelLogger::logInfo(resultsDatabaseSchema)
   if (createTable) {
   
     sql <- SqlRender::loadRenderTranslateSql(
